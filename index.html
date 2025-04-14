@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Library Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-book-open logo-icon"></i>
+                <h1>LibraHub</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search for books, authors, or genres...">
+                <button id="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="header-actions">
+                <button class="header-btn">
+                    <i class="fas fa-bell"></i>
+                </button>
+                <button class="header-btn">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h2>Discover Your Next Favorite Book</h2>
+                    <p>Browse our extensive collection of books across all genres.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus btn-icon"></i>
+                            Add Book
+                        </button>
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-bookmark btn-icon"></i>
+                            My Collection
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/bok.png" alt="Library illustration">
+                </div>
+            </section>
+
+            
+            <!-- Categories Section -->
+            <section class="categories-section">
+                <div class="section-header">
+                    <h2>Categories</h2>
+                    <a href="#" class="view-all">View All</a>
+                </div>
+                <div class="categories-container">
+                    <div class="category active">All Books</div>
+                    <div class="category">Fiction</div>
+                    <div class="category">Science Fiction</div>
+                    <div class="category">Self-Help</div>
+                    <div class="category">History</div>
+                    <div class="category">Biography</div>
+                    <div class="category">Business</div>
+                    <div class="category">Technology</div>
+                </div>
+            </section>
+
+            <!-- Popular Books Section -->
+            <section class="books-section">
+                <div class="section-header">
+                    <h2>Popular Books</h2>
+                    <a href="#" class="view-all">View All</a>
+                </div>
+                <div class="books-container" id="popular-books">
+                    <!-- Books will be loaded via JavaScript -->
+                </div>
+            </section>
+
+            <!-- New Arrivals Section -->
+            <section class="books-section">
+                <div class="section-header">
+                    <h2>New Arrivals</h2>
+                    <a href="#" class="view-all">View All</a>
+                </div>
+                <div class="books-container" id="new-arrivals">
+                    <!-- Books will be loaded via JavaScript -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LibraHub</h3>
+                    <p>Your modern library management system, designed to help you discover, organize, and enjoy your reading journey.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Browse Books</a></li>
+                        <li><a href="#">My Collection</a></li>
+                        <li><a href="#">Reading Lists</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> support@librahub.com</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Library St, Book City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LibraHub. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Book Modal -->
+        <div id="book-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span id="close-modal" class="close-modal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div id="book-details-content" class="book-details-content"></div>
+                    
+                    <div class="modal-tabs">
+                        <div class="tab active" data-tab="description">Description</div>
+                        <div class="tab" data-tab="reviews">Reviews</div>
+                        <div class="tab" data-tab="details">Details</div>
+                    </div>
+                    
+                    <div class="tab-content active" id="description-tab">
+                        <!-- Description content will be loaded via JavaScript -->
+                    </div>
+                    
+                    <div class="tab-content" id="reviews-tab">
+                        <div class="review">
+                            <div class="review-header">
+                                <div class="review-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="review-info">
+                                    <div class="review-name">Sarah Johnson</div>
+                                    <div class="review-date">March 15, 2025</div>
+                                </div>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half"></i>
+                                </div>
+                            </div>
+                            <div class="review-body">
+                                <p>This book completely changed my perspective! The character development was outstanding and the plot kept me engaged throughout.</p>
+                            </div>
+                        </div>
+                        <div class="review">
+                            <div class="review-header">
+                                <div class="review-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="review-info">
+                                    <div class="review-name">Michael Chen</div>
+                                    <div class="review-date">February 28, 2025</div>
+                                </div>
+                                <div class="review-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="review-body">
+                                <p>I couldn't put this book down! The writing style was captivating and the story flowed beautifully from start to finish.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="details-tab">
+                        <div class="details-grid">
+                            <div class="details-item">
+                                <span class="details-label">Publisher</span>
+                                <span class="details-value">Penguin Random House</span>
+                            </div>
+                            <div class="details-item">
+                                <span class="details-label">Language</span>
+                                <span class="details-value">English</span>
+                            </div>
+                            <div class="details-item">
+                                <span class="details-label">Publication Date</span>
+                                <span class="details-value">August 18, 2023</span>
+                            </div>
+                            <div class="details-item">
+                                <span class="details-label">Pages</span>
+                                <span class="details-value">336</span>
+                            </div>
+                            <div class="details-item">
+                                <span class="details-label">ISBN-10</span>
+                                <span class="details-value">0123456789</span>
+                            </div>
+                            <div class="details-item">
+                                <span class="details-label">ISBN-13</span>
+                                <span class="details-value">978-0123456789</span>
+                            </div>
+                            <div class="details-item">
+                                <span class="details-label">Dimensions</span>
+                                <span class="details-value">6 x 0.8 x 9 inches</span>
+                            </div>
+                            <div class="details-item">
+                                <span class="details-label">Weight</span>
+                                <span class="details-value">12.3 ounces</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notification -->
+        <div id="notification" class="notification">
+            <i class="fas fa-check-circle notification-icon"></i>
+            <span id="notification-message">Notification message</span>
+        </div>
+    </div>
+
+    <!-- Link to the JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
